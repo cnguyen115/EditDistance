@@ -27,23 +27,23 @@ class EditDistance
 		 * @param setInput1, setInput2 - the inputs to compare
 		 * @return - True if the input is valid and False otherwise
 		 */
-		bool setInput(const string& setInput1, const string& setInput2){ return false;  }
+		bool setInput(const string&, const string&);
 
 		/**	
 		 * Calculate the edit distance
 		 * @param input1, input2 - the two inputs to be compared
 		 * @return - the edit distance
 		 */
-		int calculate(){ return 0; }
+		int calculate();
 
 		/**
 		 * Returns the Matrix, Distance, or Alignment
 		 * @param None
 		 * @return - the text requested
 		 */
-		void returnMatrix() { return 0; }
-		void returnDistance() { return 0; }
-		void returnAlignment() { return 0; }
+		string returnMatrix();
+		int returnDistance();
+		string returnAlignment();
 
 		/* The protected members */
 	protected:

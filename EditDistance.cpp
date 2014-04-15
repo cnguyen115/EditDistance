@@ -18,9 +18,6 @@ bool EditDistance::setInput(const string& setInput1, const string& setInput2)
 		return false;
 }
 
-
-
-
 /**	
  * Calculate the edit distance
  * @param input1, input2 - the two inputs to be compared
@@ -28,7 +25,7 @@ bool EditDistance::setInput(const string& setInput1, const string& setInput2)
  */
 int EditDistance::calculate()
 { 
-	vector < vector <int> > matrix;
+	vector< vector<int> > matrix (input2.size(), vector<int> (input1.size()));
 	
 	// input2 are columns of the matrix, initialize the first row from 0 to size of input2
 	for (unsigned int i = 0; i < input2.size(); i++)
@@ -41,6 +38,8 @@ int EditDistance::calculate()
 	{
 		matrix[i][0] = i;
 	}
+	
+	return 0;
 }
 
 /**
@@ -48,17 +47,17 @@ int EditDistance::calculate()
  * @param None
  * @return - the text requested
  */
-void EditDistance::returnMatrix()
+string EditDistance::returnMatrix()
 { 
 	return matrix; 
 }
 
-void EditDistance::returnDistance()
+int EditDistance::returnDistance()
 { 
 	return distance; 
 }
 
-void EditDistance::returnAlignment()
+string EditDistance::returnAlignment()
 { 
 	return alignment; 
 }
