@@ -1,6 +1,5 @@
 #include "EditDistance.h"
 
-#include <iostream>
 /**
  * Sets the two inputs to compare
  * @param setInput1, setInput2 - the inputs to compare
