@@ -69,7 +69,7 @@ int EditDistance::calculate()
 	distance = matrix[input1.size()].at(input2.size());
 	
 	//Drawing the awful matrix	
-	string drawMatrix = "       ";
+	drawMatrix = "       ";
 	
 	for (unsigned int i = 0; i < input2.size()+1; i++)
 	{
@@ -99,20 +99,36 @@ int EditDistance::calculate()
 	{
 		ostringstream convert;
 		convert << i;
-		drawMatrix = drawMatrix + "   " + convert.str() + "  |";
+		if (i < 10)
+		{
+			drawMatrix = drawMatrix + "   " + convert.str() + "  |";
+		}
+		else
+		{
+			drawMatrix = drawMatrix + "  " + convert.str() + "  |";
+		}
 	}
 	
 	for (unsigned int i = 1; i < input1.size()+1; i++)
 	{
 		ostringstream convert;
 		convert << i;
-		drawMatrix = drawMatrix + "\n" + "   " + convert.str() + "  |";
+		
+		if (i < 10)
+		{
+			drawMatrix = drawMatrix + "\n" + "   " + convert.str() + "  |";
+		}
+		else
+		{
+			drawMatrix = drawMatrix + "\n" + "  " + convert.str() + "  |";
+		}
+			
 		for (unsigned int j = 0; j < input2.size()+1; j++)
 		{
 			ostringstream convert;
 			convert << matrix[i].at(j);
 			
-			if (j < 10)
+			if (matrix[i].at(j) < 10)
 			{
 				drawMatrix = drawMatrix + "   " + convert.str() + "  |";
 			}
@@ -122,7 +138,7 @@ int EditDistance::calculate()
 			}
 		}
 	}
-	cout << drawMatrix;
+
 	return distance;
 }
 

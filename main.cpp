@@ -15,8 +15,8 @@ int main()
 	cin >> input1;
 	
 	cout << "Enter second string: ";
-	cin >> input2;
 	
+	cin >> input2;
 	EditDistance matrix;
 	
 	if (!matrix.setInput(input1,input2))
@@ -24,9 +24,10 @@ int main()
 		cout << "Error: Inputs Invalid";
 	}
 	
+	cout << "Matrix: " << endl << matrix.printMatrix();
 	cout << "Distance: " << matrix.calculate() << endl;
 	
-	cout << "Matrix: " << endl << matrix.printMatrix();
+	
 	
 	
 	return 0;
