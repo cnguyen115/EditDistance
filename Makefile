@@ -1,6 +1,5 @@
 CC = g++
 CFLAG = -Wall -g
-LDFLAG = -lboost_unit_test_framework
 
 all: editdistance
 
