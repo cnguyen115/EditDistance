@@ -5,6 +5,7 @@
 #include <stdio.h>  /* For standard I/O */
 #include <stdlib.h> /* For miscellenous C functions */
 #include <vector>
+#include <sstream>
 
 using namespace std;
 
@@ -31,23 +32,23 @@ class EditDistance
 
 		/**	
 		 * Calculate the edit distance
-		 * @param input1, input2 - the two inputs to be compared
+		 * @param none
 		 * @return - the edit distance
 		 */
 		int calculate();
 
 		/**
-		 * Returns the Matrix, Distance, or Alignment
+		 * Returns Matrix, Distance, or Alignment
 		 * @param None
 		 * @return - the text requested
 		 */
-		string returnMatrix();
+		string printMatrix();
 		int returnDistance();
 		string returnAlignment();
 
 		/* The protected members */
 	protected:
-		string input1, input2, matrix, alignment;
+		string input1, input2, alignment, drawMatrix;
 		unsigned int distance;
 
 };
