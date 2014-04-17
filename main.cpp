@@ -19,7 +19,10 @@ int main()
 	
 	EditDistance matrix;
 	
-	matrix.setInput(input1,input2);
+	if (!matrix.setInput(input1,input2))
+	{
+		cout << "Error: Inputs Invalid";
+	}
 	
 	cout << "Distance: " << matrix.calculate() << endl;
 	

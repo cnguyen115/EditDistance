@@ -47,11 +47,13 @@ int EditDistance::calculate()
 	{
 		for (unsigned int j = 1; j < input2.size()+1; j++)
 		{
-			if (input1.compare(i-1,i-1,input2,j-1,j-1) == 0)
+			cout << i << " " << j << endl;
+			if (input1.compare(i-1,1,input2,j-1,1) == 0)
 			{
+				cout << "match found" << 	endl;
 				matrix[i].at(j) = matrix[i-1].at(j-1);
 			}
-			else
+			/*else
 			{
 				if (matrix[i].at(j-1) < matrix[i-1].at(j))
 				{
@@ -61,13 +63,13 @@ int EditDistance::calculate()
 				{
 					matrix[i].at(j) = matrix[i-1].at(j) + 1;
 				}
-			}
+			}*/
 		}
 	}
 	
 	//store the distance which is at the bottom right corner of the matrix
-	distance = matrix[input1.size()].at(input2.size());
-	/*
+	/*distance = matrix[input1.size()].at(input2.size());
+	
 	//Drawing the awful matrix	
 	string drawMatrix = "       ";
 	
