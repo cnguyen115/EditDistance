@@ -33,9 +33,9 @@ class EditDistance
 		/**	
 		 * Calculate the edit distance
 		 * @param none
-		 * @return - the edit distance
+		 * @return - none
 		 */
-		int calculate();
+		void calculate();
 
 		/**
 		 * Returns Matrix, Distance, or Alignment

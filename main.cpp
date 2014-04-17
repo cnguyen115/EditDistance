@@ -24,11 +24,10 @@ int main()
 		cout << "Error: Inputs Invalid";
 	}
 	
-	cout << "Matrix: " << endl << matrix.printMatrix();
-	cout << "Distance: " << matrix.calculate() << endl;
+	matrix.calculate();
 	
-	
-	
+	cout << "Matrix: " << endl << matrix.printMatrix() << endl;	
+	cout << "Distance: " << matrix.returnDistance() << endl;
 	
 	return 0;
 }

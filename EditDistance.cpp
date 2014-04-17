@@ -24,7 +24,7 @@ bool EditDistance::setInput(const string& setInput1, const string& setInput2)
  * @param input1, input2 - the two inputs to be compared
  * @return - the edit distance
  */
-int EditDistance::calculate()
+void EditDistance::calculate()
 { 
 	vector< vector<int> > matrix (input1.size()+1, vector<int> (input2.size()+1, 0));
 	
@@ -53,13 +53,17 @@ int EditDistance::calculate()
 			}
 			else
 			{
-				if (matrix[i].at(j-1) < matrix[i-1].at(j))
+				if (matrix[i].at(j-1) < matrix[i-1].at(j) && matrix[i].at(j-1) < matrix[i-1].at(j-1))
 				{
 					matrix[i].at(j) = matrix[i].at(j-1) + 1;
 				}
-				else
+				else if (matrix[i-1].at(j) < matrix[i].at(j-1) && matrix[i-1].at(j) < matrix[i-1].at(j-1))
 				{
 					matrix[i].at(j) = matrix[i-1].at(j) + 1;
+				}
+				else
+				{
+					matrix[i].at(j) = matrix[i-1].at(j-1) + 1;
 				}
 			}
 		}
@@ -138,8 +142,6 @@ int EditDistance::calculate()
 			}
 		}
 	}
-
-	return distance;
 }
 
 /**
