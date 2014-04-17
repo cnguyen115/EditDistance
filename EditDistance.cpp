@@ -56,13 +56,13 @@ void EditDistance::calculate()
 			else
 			{
 				// Check if left element is lowest
-				if (matrix[i].at(j-1) < matrix[i-1].at(j) && matrix[i].at(j-1) < matrix[i-1].at(j-1))
+				if (matrix[i].at(j-1) <= matrix[i-1].at(j) && matrix[i].at(j-1) <= matrix[i-1].at(j-1))
 				{
 					matrix[i].at(j) = matrix[i].at(j-1) + 1;
 					alignmentMatrix[i].at(j) = 1;
 				}
 				// Check if top element lowest
-				else if (matrix[i-1].at(j) < matrix[i].at(j-1) && matrix[i-1].at(j) < matrix[i-1].at(j-1))
+				else if (matrix[i-1].at(j) <= matrix[i].at(j-1) && matrix[i-1].at(j) <= matrix[i-1].at(j-1))
 				{
 					matrix[i].at(j) = matrix[i-1].at(j) + 1;
 					alignmentMatrix[i].at(j) = 0;
