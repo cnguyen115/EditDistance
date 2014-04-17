@@ -26,18 +26,18 @@ bool EditDistance::setInput(const string& setInput1, const string& setInput2)
  */
 int EditDistance::calculate()
 { 
-	vector< vector<int> > matrix (input2.size()+1, vector<int> (input1.size()+1, 0));
+	vector< vector<int> > matrix (input1.size()+1, vector<int> (input2.size()+1, 0));
 	
 	distance = 0;
 	
 	// input2 are columns of the matrix, initialize the first row from 0 to size of input2
-	for (unsigned int i = 0; i < input1.size()+1; i++)
+	for (unsigned int i = 0; i < input2.size()+1; i++)
 	{
 		matrix[0][i] = i;
 	}
 	
 	// input1 are rows of the matrix, initialize the first column from 0 to size of input1
-	for (unsigned int i = 0; i < input2.size()+1; i++)
+	for (unsigned int i = 0; i < input1.size()+1; i++)
 	{
 		matrix[i][0] = i;
 	}
@@ -47,13 +47,13 @@ int EditDistance::calculate()
 	{
 		for (unsigned int j = 1; j < input2.size()+1; j++)
 		{
-			cout << i << " " << j << endl;
 			if (input1.compare(i-1,1,input2,j-1,1) == 0)
 			{
-				cout << "match found" << 	endl;
+				
 				matrix[i].at(j) = matrix[i-1].at(j-1);
+				cout << "match found" << 	endl;
 			}
-			/*else
+			else
 			{
 				if (matrix[i].at(j-1) < matrix[i-1].at(j))
 				{
@@ -63,12 +63,12 @@ int EditDistance::calculate()
 				{
 					matrix[i].at(j) = matrix[i-1].at(j) + 1;
 				}
-			}*/
+			}
 		}
 	}
 	
 	//store the distance which is at the bottom right corner of the matrix
-	/*distance = matrix[input1.size()].at(input2.size());
+	distance = matrix[input1.size()].at(input2.size());
 	
 	//Drawing the awful matrix	
 	string drawMatrix = "       ";
@@ -90,9 +90,9 @@ int EditDistance::calculate()
 	
 	drawMatrix = drawMatrix + "\n" + "      -";
 	
-	for (unsigned int i = 1; i < input2.size()+1; i++)
+	for (unsigned int i = 0; i < input2.size()+1; i++)
 	{
-		drawMatrix = drawMatrix + "--------";
+		drawMatrix = drawMatrix + "-------";
 	}
 	
 	drawMatrix = drawMatrix + "\n" + "   0  |";
@@ -124,7 +124,7 @@ int EditDistance::calculate()
 			}
 		}
 	}
-	cout << drawMatrix;*/
+	cout << drawMatrix;
 	return distance;
 }
 
