@@ -49,9 +49,7 @@ int EditDistance::calculate()
 		{
 			if (input1.compare(i-1,1,input2,j-1,1) == 0)
 			{
-				
 				matrix[i].at(j) = matrix[i-1].at(j-1);
-				cout << "match found" << 	endl;
 			}
 			else
 			{
