@@ -28,6 +28,7 @@ int main()
 	
 	cout << "Matrix: " << endl << matrix.printMatrix() << endl;	
 	cout << "Distance: " << matrix.returnDistance() << endl;
+	cout << "Alignment: " << endl << matrix.returnAlignment() << endl;
 	
 	return 0;
 }
